@@ -6,6 +6,81 @@
     android:layout_height="match_parent"
     android:background="#673AB7"
     android:padding="10dp"
-    tools:context=".secondActivity">
+    tools:context=".SecondActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        app:cardCornerRadius="50dp">
+
+        <RelativeLayout
+            android:id="@+id/loginlinear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingTop="30dp"
+            android:paddingEnd="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="30dp">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Animal Type"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Owner"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="phone"
+                    android:inputType="number"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Species"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Breed"/>
+
+
+                <Spinner
+                    android:id="@+id/gender"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+
+                </Spinner>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
 
 </RelativeLayout>
