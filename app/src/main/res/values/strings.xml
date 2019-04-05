@@ -7,16 +7,44 @@
     </array>
 
     <array name="small_animal_name">
-        <item>पशु का चयन करें</item>
+        <item>छोटा पशु का चयन करें</item>
         <item>कुत्ता</item>
         <item>बिल्ली</item>
         <item>बंदर</item>
+        <item>चिंपांज़ी</item>
+        <item>लोमड़ी</item>
+        <item>बकरी</item>
+        <item>सियार</item>
+        <item>सुअर</item>
+        <item>खरगोश्</item>
+        <item>भेड्</item>
+
     </array>
     <array name="large_animal_name">
-        <item>पशु का चयन करें</item>
+        <item>बड़ा पशु का चयन करें</item>
         <item>गाय</item>
-        <item>भेंस</item>
+        <item>भैंस</item>
         <item>बैल</item>
+        <item>उंट</item>
+        <item>हाथी</item>
+        <item>घोडा</item>
+        <item>सांड</item>
+        <item>सांड</item>
+    </array>
+
+
+    <array name="birds">
+        <item>पक्षी का चयन करें</item>
+        <item>कौआ</item>
+        <item>कबूतर</item>
+        <item>मोर</item>
+        <item>बतख</item>
+        <item>मुर्गी</item>
+        <item>मैना</item>
+        <item>बुलबुल</item>
+        <item>उल्लु</item>
+        <item>तोता</item>
+        <item>कोयल</item>
     </array>
 
     <array name="months">

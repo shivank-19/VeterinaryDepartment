@@ -29,10 +29,10 @@ public class SecondActivity extends AppCompatActivity {
     Spinner animal_type, large_animal, Month, Year;
     Button button;
     String s3;
-    ArrayAdapter<String> adapter1, adapter2, adapter3, adapter4, adapter5;
+    ArrayAdapter<String> adapter1, adapter2, adapter3, adapter4, adapter5, adapter6;
     List<String> smallanimallist = new ArrayList<>();
     List<String> largeanimallist = new ArrayList<>();
-    String[] array1, array2, array3, array4, array5;
+    String[] array1, array2, array3, array4, array5,array6;
     private EditText Phone;
     String Atype, Aname, Agender, Aage, APhone, Asize, Amonth, Ayear;
     private DatabaseReference firebaseDatabase;
@@ -72,6 +72,7 @@ public class SecondActivity extends AppCompatActivity {
         array3 = getResources().getStringArray(R.array.large_animal_name);
         array4 = getResources().getStringArray(R.array.months);
         array5 = getResources().getStringArray(R.array.year);
+        array6 = getResources().getStringArray(R.array.birds);
 
 
         adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, array1);
@@ -92,6 +93,9 @@ public class SecondActivity extends AppCompatActivity {
         adapter5 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, array5);
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+        adapter6 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, array6);
+        adapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
 
         animal_type.setAdapter(adapter1);
 
@@ -106,6 +110,7 @@ public class SecondActivity extends AppCompatActivity {
                         large_animal.setAdapter(adapter2);
 
                     }
+
                     if (parent.getItemAtPosition(position).toString().equals("बड़ा")) {
                         large_animal.setAdapter(adapter3);
                     }
@@ -142,7 +147,7 @@ public class SecondActivity extends AppCompatActivity {
                 if (checkedId == R.id.rb_birds) {
 
                     animal_type.setEnabled(false);
-                    large_animal.setEnabled(false);
+                    large_animal.setAdapter(adapter6);
                     Atype = "पक्षी";
 
                 } else {

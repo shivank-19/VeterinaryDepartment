@@ -9,11 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Medic"></activity>
+        <activity android:name=".Final"></activity>
+        <activity android:name=".Medic" />
         <activity android:name=".Work" />
         <activity android:name=".SecondActivity" />
-
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#673AB7"
+    tools:context=".Final">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="match_parent"
+                android:layout_height="650dp"
+                app:cardCornerRadius="50dp">
+
+                <RelativeLayout
+                    android:id="@+id/loginlinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingStart="10dp"
+                    android:paddingTop="30dp"
+                    android:paddingEnd="10dp">
+
+                    <TextView
+                        android:id="@+id/data_saved"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="100dp"
+                        android:text="Data Saved Successfully!!"
+                        android:textColor="#D8FF5722"
+                        android:textSize="40sp"
+                        android:textAlignment="center"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/thank_you"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="250dp"
+                        android:text="Thank You"
+                        android:textColor="#D8FF5722"
+                        android:textSize="40sp"
+                        android:textAlignment="center"
+                        android:textStyle="bold"/>
+
+                    <Button
+                        android:id="@+id/ok"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="350dp"
+                        android:background="@drawable/loginbackground"
+                        android:text="OK"
+                        android:textColor="#fff"
+                        android:textSize="25sp" />
+
+
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

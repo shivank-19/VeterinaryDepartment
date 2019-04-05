@@ -105,8 +105,10 @@ public class Medic extends AppCompatActivity {
                     return;
                 } else {
                     firebaseDatabase.child("Disease").setValue(dis.getText().toString());
-
                     firebaseDatabase.child("Medicine").setValue(medi.getText().toString());
+                    Intent intent = new Intent(Medic.this, Final.class);
+                    startActivity(intent);
+                    finish();
                 }
 
             }
