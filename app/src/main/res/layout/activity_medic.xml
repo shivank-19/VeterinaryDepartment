@@ -44,7 +44,8 @@
                             android:id="@+id/ID"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="20dp"
+                            android:gravity="center"
                             android:textSize="25sp"
                             android:hint="ID"/>
 
@@ -53,40 +54,45 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="SIZE"
+                            android:gravity="center"
                             android:textSize="25sp"
-                            android:layout_marginTop="15dp"/>
+                            android:layout_marginTop="20dp"/>
 
                         <TextView
                             android:id="@+id/Name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="NAME"
+                            android:gravity="center"
                             android:textSize="25sp"
-                            android:layout_marginTop="15dp"/>
+                            android:layout_marginTop="20dp"/>
 
                         <TextView
                             android:id="@+id/Gender"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="GENDER"
+                            android:gravity="center"
                             android:textSize="25sp"
-                            android:layout_marginTop="15dp"/>
+                            android:layout_marginTop="20dp"/>
 
                         <TextView
                             android:id="@+id/Age"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="AGE"
+                            android:gravity="center"
                             android:textSize="25sp"
-                            android:layout_marginTop="15dp"/>
+                            android:layout_marginTop="20dp"/>
 
                         <TextView
                             android:id="@+id/Mobile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="25sp"
+                            android:gravity="center"
                             android:hint="MOBILE"
-                            android:layout_marginTop="15dp"/>
+                            android:layout_marginTop="20dp"/>
 
 
                         <android.support.design.widget.TextInputLayout

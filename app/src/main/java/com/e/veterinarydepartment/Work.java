@@ -40,6 +40,14 @@ public class Work extends AppCompatActivity {
                 intent.putExtra("name",Aname);
 
                 startActivity(intent);
+                finish();
+            }
+        });
+
+        cas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Work.this,Castiation_activity.class));
             }
         });
 

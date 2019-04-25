@@ -38,7 +38,9 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_person_outline_black_24dp"
                     android:drawablePadding="10dp"
-                    android:hint="username" />
+                    android:hint="username"
+                    android:inputType="text"
+                    android:maxLines="1"/>
             </android.support.design.widget.TextInputLayout>
 
             <TextView

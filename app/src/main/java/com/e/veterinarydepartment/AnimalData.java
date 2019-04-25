@@ -5,6 +5,7 @@ public class AnimalData {
     private String phone, animalType, animalname, gender, age;
 
     public AnimalData() {
+
     }
 
     public AnimalData(String phone, String animalType, String animalname, String gender, String age) {

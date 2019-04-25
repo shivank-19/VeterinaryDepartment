@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Final"></activity>
+        <activity android:name=".Castiation_activity"></activity>
+        <activity android:name=".Final" />
         <activity android:name=".Medic" />
         <activity android:name=".Work" />
         <activity android:name=".SecondActivity" />

@@ -59,14 +59,13 @@ public class SecondActivity extends AppCompatActivity {
         Month = findViewById(R.id.sp_month);
         Year = findViewById(R.id.sp_year);
 
-
         //ID Generated
         
         Id=FirebaseDatabase.getInstance().getReference().push().getKey();
-        /*Toast.makeText(this, ""+Id, Toast.LENGTH_SHORT).show();
-*/
-        
-        
+
+
+        //Toast.makeText(this, ""+Id, Toast.LENGTH_SHORT).show();
+
         array1 = getResources().getStringArray(R.array.animals_type);
         array2 = getResources().getStringArray(R.array.small_animal_name);
         array3 = getResources().getStringArray(R.array.large_animal_name);
@@ -99,30 +98,44 @@ public class SecondActivity extends AppCompatActivity {
 
         animal_type.setAdapter(adapter1);
 
-        animal_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                Asize = parent.getItemAtPosition(position).toString().trim();
-
-                    if (parent.getItemAtPosition(position).toString().equals("छोटा")) {
-
-                        large_animal.setAdapter(adapter2);
-
-                    }
-
-                    if (parent.getItemAtPosition(position).toString().equals("बड़ा")) {
-                        large_animal.setAdapter(adapter3);
-                    }
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.rb_birds)
+                {
+                    animal_type.setEnabled(false);
+                    large_animal.setAdapter(adapter6);
+                    Atype = "पक्षी";
+                    Asize = "पक्षी";
                 }
+                else
+                    {
+                    animal_type.setEnabled(true);
+                    large_animal.setEnabled(true);
+                    Atype = "पशु";
 
+                        animal_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                            @Override
+                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                Asize = parent.getItemAtPosition(position).toString().trim();
+                                if (parent.getItemAtPosition(position).toString().equals("छोटा")) {
+                                    large_animal.setAdapter(adapter2);
+                                }
+                                if (parent.getItemAtPosition(position).toString().equals("बड़ा")) {
+                                    large_animal.setAdapter(adapter3);
+                                }
+                            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(SecondActivity.this, "", Toast.LENGTH_SHORT).show();
-
+                            @Override
+                            public void onNothingSelected(AdapterView<?> parent) {
+                                Toast.makeText(SecondActivity.this, "", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                }
             }
         });
+
+
 
 
         large_animal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -141,29 +154,11 @@ public class SecondActivity extends AppCompatActivity {
         });
 
 
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.rb_birds) {
-
-                    animal_type.setEnabled(false);
-                    large_animal.setAdapter(adapter6);
-                    Atype = "पक्षी";
-
-                } else {
-                    animal_type.setEnabled(true);
-                    large_animal.setEnabled(true);
-                    Atype = "पशु";
-                }
-            }
-        });
-
 
         gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.rb_male) {
-
                     Agender = "नर";
 
                 } else {
@@ -202,12 +197,10 @@ public class SecondActivity extends AppCompatActivity {
         });
 
 
-
-
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 if (Phone.getText().toString().isEmpty()) {
                     Phone.setError("इसे खाली मत रखो");
@@ -215,7 +208,7 @@ public class SecondActivity extends AppCompatActivity {
                 }
                else {
                     firebaseDatabase = FirebaseDatabase.getInstance().getReference("ANIMAL").child("" + Asize).child("" + Aname);
-                    animalData = new AnimalData(Phone.getText().toString().trim(), Atype, Aname, Agender, Amonth + "" + Ayear);
+                    animalData = new AnimalData(Phone.getText().toString().trim() , Atype, Aname, Agender, Amonth + " महीना " + Ayear + " साल");
 
                     firebaseDatabase.child("" + Id).setValue(animalData).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
@@ -236,15 +229,7 @@ public class SecondActivity extends AppCompatActivity {
                         }
                     });
                 }
-
-
-
-
-
             }
         });
-
-
     }
 }
-

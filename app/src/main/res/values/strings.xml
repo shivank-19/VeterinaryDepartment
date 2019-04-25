@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">VeterinaryDepartment</string>
+    <string name="app_name">Veterinary Department</string>
     <array name="animals_type">
         <item>पशु के प्रकार का चयन करें</item>
         <item>छोटा</item>

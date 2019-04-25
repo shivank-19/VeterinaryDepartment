@@ -63,7 +63,7 @@ public class Medic extends AppCompatActivity {
 
                 animalData = dataSnapshot.getValue(AnimalData.class);
 
-           //    Toast.makeText(Medic.this, String.format("%s", dataSnapshot.getValue(AnimalData.class).getGender()), Toast.LENGTH_SHORT).show();
+               //Toast.makeText(Medic.this, String.format("%s", dataSnapshot.getValue(AnimalData.class).getGender()), Toast.LENGTH_SHORT).show();
 
 
 
@@ -74,11 +74,11 @@ public class Medic extends AppCompatActivity {
                 mobile.setText(animalData.getPhone());
 
 
-                /*
+
                 gender.setText(dataSnapshot.child("gender").getValue().toString());
                 age.setText(dataSnapshot.child("age").getValue().toString());
                 mobile.setText(dataSnapshot.child("phone").getValue().toString());
-*/
+
 
 
             }
@@ -88,6 +88,8 @@ public class Medic extends AppCompatActivity {
 
             }
         });
+
+
 
 
         save.setOnClickListener(new View.OnClickListener() {
@@ -106,24 +108,12 @@ public class Medic extends AppCompatActivity {
                 } else {
                     firebaseDatabase.child("Disease").setValue(dis.getText().toString());
                     firebaseDatabase.child("Medicine").setValue(medi.getText().toString());
-                    Intent intent = new Intent(Medic.this, Final.class);
+                    Intent intent = new Intent(Medic.this,SecondActivity.class);
                     startActivity(intent);
                     finish();
                 }
 
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
