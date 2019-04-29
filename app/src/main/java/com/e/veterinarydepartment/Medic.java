@@ -52,56 +52,33 @@ public class Medic extends AppCompatActivity {
         id.setText(Id);
         size.setText(Asize);
         name.setText(Aname);
-
-
         firebaseDatabase=FirebaseDatabase.getInstance().getReference("ANIMAL").child(""+Asize).child(""+Aname).child(""+Id);
-
         firebaseDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-
                 animalData = dataSnapshot.getValue(AnimalData.class);
-
                //Toast.makeText(Medic.this, String.format("%s", dataSnapshot.getValue(AnimalData.class).getGender()), Toast.LENGTH_SHORT).show();
-
-
-
-
 
                 gender.setText(animalData.getGender());
                 age.setText(animalData.getAge());
                 mobile.setText(animalData.getPhone());
 
-
-
                 gender.setText(dataSnapshot.child("gender").getValue().toString());
                 age.setText(dataSnapshot.child("age").getValue().toString());
                 mobile.setText(dataSnapshot.child("phone").getValue().toString());
-
-
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-
-
-
-
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 if (dis.getText().toString().isEmpty()) {
                     dis.setError("Dont keep it Empty");
                     return;
                 }
-
                 if (medi.getText().toString().isEmpty()) {
                     medi.setError("Dont keep it Empty");
                     return;

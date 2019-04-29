@@ -1,21 +1,22 @@
 package com.e.veterinarydepartment;
-
 public class AnimalData {
-
-    private String phone, animalType, animalname, gender, age;
-
+    private String phone, animalType, animalname, gender, age,time;
     public AnimalData() {
-
     }
-
-    public AnimalData(String phone, String animalType, String animalname, String gender, String age) {
+    public AnimalData(String phone, String animalType, String animalname, String gender, String age,String time) {
         this.phone = phone;
         this.animalType = animalType;
         this.animalname = animalname;
         this.gender = gender;
         this.age = age;
+        this.time=time;
     }
-
+    public String getTime() {
+        return time;
+    }
+    public void setTime(String time) {
+        this.time = time;
+    }
 
     public String getPhone() {
         return phone;

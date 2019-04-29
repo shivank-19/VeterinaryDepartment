@@ -20,27 +20,21 @@ public class Work extends AppCompatActivity {
 
         med = findViewById(R.id.btn_medic);
         cas = findViewById(R.id.castiation);
-        vac = findViewById(R.id.vacination);
+        //vac = findViewById(R.id.vacination);
         prag = findViewById(R.id.pragnancy);
-
 
         intent=getIntent();
         Id=intent.getStringExtra("uid");
         Asize=intent.getStringExtra("size");
         Aname=intent.getStringExtra("name");
-
         med.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
          intent   = new Intent(Work.this, Medic.class);
                 intent.putExtra("uid",Id);
-
                 intent.putExtra("size",Asize);
-
                 intent.putExtra("name",Aname);
-
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -48,6 +42,13 @@ public class Work extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Work.this,Castiation_activity.class));
+            }
+        });
+
+        prag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Work.this, Pragnancy.class));
             }
         });
 

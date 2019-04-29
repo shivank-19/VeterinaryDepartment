@@ -27,9 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         mAuth = FirebaseAuth.getInstance();
-
         username= findViewById(R.id.username);
         password = findViewById(R.id.password);
         loginbutton = findViewById(R.id.buttonlogin);
@@ -53,13 +51,11 @@ public class MainActivity extends AppCompatActivity {
                                         // Log.d(TAG, "signInWithEmail:success");
                                         // FirebaseUser user = mAuth.getCurrentUser();
                                         //   updateUI(user);
-
                                         Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                                         startActivity(intent);
                                         finish();
                                       //  Toast.makeText(MainActivity.this, "Authentication",
                                       //          Toast.LENGTH_SHORT).show();
-
                                     } else {
                                         // If sign in fails, display a message to the user.
                                         //  Log.w(TAG, "signInWithEmail:failure", task.getException());
