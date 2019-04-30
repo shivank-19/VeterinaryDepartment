@@ -36,28 +36,37 @@
 
 
                     <Button
-                        android:id="@+id/entry"
+                        android:id="@+id/large_animal"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="40dp"
                         android:background="@drawable/loginbackground"
-                        android:text="प्रविष्टि"
+                        android:text="बड़े पशु का डाटा"
                         android:textColor="#fff"
                         android:textSize="25sp" />
 
 
                     <Button
-                        android:id="@+id/report"
+                        android:id="@+id/Small_animal"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="120dp"
                         android:background="@drawable/loginbackground"
-                        android:text="रिपोर्ट"
+                        android:text="छोटे पशु का डाटा"
                         android:textColor="#fff"
                         android:textSize="25sp" />
 
 
 
+                    <Button
+                        android:id="@+id/birds"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="200dp"
+                        android:background="@drawable/loginbackground"
+                        android:text="पक्षियों का डाटा"
+                        android:textColor="#fff"
+                        android:textSize="25sp" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
         </LinearLayout>

@@ -8,20 +8,28 @@ import android.widget.Button;
 
 public class Final extends AppCompatActivity {
 
-    Button button;
+    Button entry,report;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
-        button = findViewById(R.id.ok);
+        entry = findViewById(R.id.entry);
+        report = findViewById(R.id.report);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        entry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Final.this, SecondActivity.class);
                 startActivity(intent);
-                finish();
+            }
+        });
+
+        report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Final.this, DataShow.class);
+                startActivity(intent);
             }
         });
     }

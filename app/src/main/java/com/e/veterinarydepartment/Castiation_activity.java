@@ -46,6 +46,13 @@ public class Castiation_activity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         arrayList = new ArrayList<>();
         arrayList2=new ArrayList<>();
+
+
+        toggleButton.setText("All Data");
+        toggleButton.setTextOff("All Data");
+        toggleButton.setTextOn("Today\nData");
+
+
         firebaseDatabase = FirebaseDatabase.getInstance().getReference("ANIMAL").child("बड़ा");
         firebaseDatabase.addChildEventListener(new ChildEventListener() {
             @Override
@@ -74,6 +81,7 @@ public class Castiation_activity extends AppCompatActivity {
 
 
                         if (isChecked){
+
                             ListItems listItems = new ListItems(Castiation_activity.this, animalDataList, arrayList);
                             recyclerView.setAdapter(listItems);
                             listItems.notifyDataSetChanged();
@@ -85,10 +93,6 @@ public class Castiation_activity extends AppCompatActivity {
                         }
                     }
                 });
-
-
-
-
 
             }
 

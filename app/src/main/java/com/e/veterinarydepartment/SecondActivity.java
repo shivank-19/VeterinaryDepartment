@@ -159,9 +159,9 @@ public class SecondActivity extends AppCompatActivity {
                 }
                 else if (checkAnimalType(animal,birds)) {
                     Toast.makeText(SecondActivity.this, "Select the Animal or Bird!", Toast.LENGTH_SHORT).show();
-                } else if (checkAnimalSize(animal_type.getSelectedItem().toString())){
-                    Toast.makeText(SecondActivity.this, "Select the Animal Type!", Toast.LENGTH_SHORT).show();
-                } else if (checkAnimalName(large_animal.getSelectedItem().toString())) {
+                } //else if (checkAnimalSize(animal_type.getSelectedItem().toString())){
+                   // Toast.makeText(SecondActivity.this, "Select the Animal Type!", Toast.LENGTH_SHORT).show();}
+                 else if (checkAnimalName(large_animal.getSelectedItem().toString())) {
                     Toast.makeText(SecondActivity.this, "Select Animal Name!", Toast.LENGTH_SHORT).show();
                 } else if (checkGender(male,female)) {
                     Toast.makeText(SecondActivity.this, "Select the Gender!", Toast.LENGTH_SHORT).show();
@@ -173,6 +173,7 @@ public class SecondActivity extends AppCompatActivity {
                     firebaseDatabase.child("" + Id).setValue(animalData).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
+
                             Intent intent = new Intent(SecondActivity.this, Work.class);
                             intent.putExtra("uid", Id);
                             intent.putExtra("size", Asize);

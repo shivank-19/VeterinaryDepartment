@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                                         // Log.d(TAG, "signInWithEmail:success");
                                         // FirebaseUser user = mAuth.getCurrentUser();
                                         //   updateUI(user);
-                                        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                                        Intent intent = new Intent(MainActivity.this, Final.class);
                                         startActivity(intent);
                                         finish();
                                       //  Toast.makeText(MainActivity.this, "Authentication",

@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -25,36 +24,26 @@ import java.util.Date;
 import java.util.List;
 
 
-public class ListItems extends RecyclerView.Adapter<ListItems.ProgrammingViewHolder> {
+public class AllDataAdapter extends RecyclerView.Adapter<AllDataAdapter.ProgrammingViewHolder> {
 
 
     private Boolean aBoolean=true;
     private ArrayList<String> list = new ArrayList<>();
     private Context context;
     private List<AnimalData> arrayList = new ArrayList<>();
-    private DatabaseReference firebaseDatabase,ref;
+    private DatabaseReference firebaseDatabase;
     private String sexCheck;
 
 
-    public ListItems(Context context, List arrayList, ArrayList list) {
+    public AllDataAdapter(Context context, List arrayList, ArrayList list) {
         this.context = context;
         this.list = list;
         this.arrayList = arrayList;
         firebaseDatabase = FirebaseDatabase.getInstance().getReference("ANIMAL").child("बड़ा");
-        ref=FirebaseDatabase.getInstance().getReference("ANIMAL");
         firebaseDatabase.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    AnimalData animalData = snapshot.getValue(AnimalData.class);
-                    if (animalData.getGender().equals("नर") && (
-                            animalData.getTime().contains( new SimpleDateFormat("MM/dd/yyyy").format(new Date()))  ) ){
 
-                    }
-                    if (animalData.getGender().equals("नर")){
-
-                    }
-                }
             }
 
             @Override
@@ -83,7 +72,7 @@ public class ListItems extends RecyclerView.Adapter<ListItems.ProgrammingViewHol
     @Override
     public ProgrammingViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-        View view = inflater.inflate(R.layout.testing_layout, viewGroup, false);
+        View view = inflater.inflate(R.layout.data, viewGroup, false);
         return new ProgrammingViewHolder(view);
     }
     @Override
@@ -93,28 +82,9 @@ public class ListItems extends RecyclerView.Adapter<ListItems.ProgrammingViewHol
         name = arrayList.get(i);
 
         k = list.get(i);
-        viewHolder.textView.setText("Name= " + name.getAnimalname() + "\nkey " + list.get(i) + "\n" + name.getAge() + "\nPhone= " + name.getPhone());
-  viewHolder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-      @Override
-      public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        viewHolder.textView.setText("Name= " + name.getAnimalname() + "\nkey " + list.get(i) + "\n" + name.getAge() + "\nPhone= "
+                + name.getPhone()+"\n"+"Date= "+name.getTime()+"\n"+"Sex= "+name.getGender());
 
-          if (name.getGender().equals("मादा")){
-              if (isChecked){
-                  ref.child("Pregnancy").child("key"+i).setValue(list.get(i));
-              }else {
-                  ref.child("Pregnancy").child("key"+i).removeValue();
-              }
-          }else {
-              if (isChecked){
-                  ref.child("Castiation").child("key"+i).setValue(list.get(i));
-              }else {
-                  ref.child("Castiation").child("key"+i).removeValue();
-              }
-          }
-
-
-      }
-  });
     }
 
     @Override
@@ -124,12 +94,11 @@ public class ListItems extends RecyclerView.Adapter<ListItems.ProgrammingViewHol
 
     public class ProgrammingViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
-        CheckBox checkBox;
+
 
         public ProgrammingViewHolder(View view) {
             super(view);
-            textView = view.findViewById(R.id.textView);
-            checkBox = view.findViewById(R.id.checkbox);
+            textView = view.findViewById(R.id.tv_all_data);
         }
     }
 }

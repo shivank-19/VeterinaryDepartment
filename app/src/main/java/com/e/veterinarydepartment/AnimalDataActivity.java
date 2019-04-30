@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.CompoundButton;
-import android.widget.ToggleButton;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -20,84 +18,40 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Pragnancy extends AppCompatActivity {
-
+public class AnimalDataActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
+
     private List<AnimalData> animalDataList = new ArrayList<>();
     private List<AnimalData> animalDataList2= new ArrayList<>();
 
     private ArrayList<String> arrayList,arrayList2;
     private DatabaseReference firebaseDatabase;
-    private ToggleButton toggleButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pragnancy);
-        recyclerView = findViewById(R.id.recyclerView2);
-        toggleButton=findViewById(R.id.toggleButton2);
+        setContentView(R.layout.activity_animal_data);
+
+        recyclerView=findViewById(R.id.rv_animal_data);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         arrayList = new ArrayList<>();
         arrayList2=new ArrayList<>();
 
-        toggleButton.setText("All Data");
-        toggleButton.setTextOff("All Data");
-        toggleButton.setTextOn("Today\nData");
-
-        firebaseDatabase = FirebaseDatabase.getInstance().getReference("ANIMAL").child("बड़ा");
 
 
+        firebaseDatabase = FirebaseDatabase.getInstance().getReference("ANIMAL").child(getIntent().getStringExtra("AnimalChoice"));
         firebaseDatabase.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     AnimalData animalData = snapshot.getValue(AnimalData.class);
-
-
-                    if (animalData.getGender().equals("मादा") && (
-                            animalData.getTime().contains( new SimpleDateFormat("MM/dd/yyyy").format(new Date()))  ) ){
-
                         animalDataList.add(animalData);
                         arrayList.add(snapshot.getKey());
-                    }
-                    if (animalData.getGender().equals("मादा")){
+                    AllDataAdapter allDataAdapter = new AllDataAdapter(getApplicationContext(), animalDataList, arrayList);
 
-                        animalDataList2.add(animalData);
-                        arrayList2.add(snapshot.getKey());
-                    }
+                    recyclerView.setAdapter(allDataAdapter);
+
                 }
-
-                ListItems listItems = new ListItems(Pragnancy.this, animalDataList2, arrayList2);
-
-                recyclerView.setAdapter(listItems);
-
-                listItems.notifyDataSetChanged();
-
-                toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        if (isChecked){
-                            ListItems listItems = new ListItems(Pragnancy.this, animalDataList, arrayList);
-                            recyclerView.setAdapter(listItems);
-                            listItems.notifyDataSetChanged();
-                        }
-                        else {
-                            ListItems listItems = new ListItems(Pragnancy.this, animalDataList2, arrayList2);
-
-                            recyclerView.setAdapter(listItems);
-
-                            listItems.notifyDataSetChanged();
-
-                        }
-                    }
-                });
-
-
-
-
-
             }
 
             @Override
@@ -121,6 +75,6 @@ public class Pragnancy extends AppCompatActivity {
             }
         });
 
-    }
 
+    }
 }
